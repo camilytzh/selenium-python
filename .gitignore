@@ -1,0 +1,23 @@
+# Ignorar entorno virtual
+venv/
+
+# Archivos de Python compilados
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos temporales de pruebas
+*.log
+*.tmp
+
+# Archivos de pytest
+.cache/
+.pytest_cache/
+
+# Configuración local de VS Code
+.vscode/
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
