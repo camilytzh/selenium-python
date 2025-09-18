@@ -1,0 +1,23 @@
+from selenium.webdriver.common.by import By
+import random as rd
+from base_page import BasePage
+
+
+class CartPage(BasePage):
+    CHECKOUT_BUTTON = (By.ID, "checkout")
+    LIST_CART_ITEMS = (By.CSS_SELECTOR, ".item_pricebar button")
+
+    def checkout(self):
+        self.driver.find_element(*self.CHECKOUT_BUTTON).click()
+
+    def remove_items(self, number_of_items):
+        items = self.driver.find_elements(*self.LIST_CART_ITEMS)
+        total_items_in_cart = len(items)
+
+        if number_of_items > total_items_in_cart:
+            raise ValueError(f"There are only: {total_items_in_cart} items available.")
+        
+        for _ in range(number_of_items):
+            item_to_remove = rd.choice(items)
+            item_to_remove.click()
+            items.remove(item_to_remove) #Avoid to choose the same item
