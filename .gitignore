@@ -1,6 +1,9 @@
 # Ignorar entorno virtual
 venv/
 
+# Ignorar data de ejemplo
+data/
+
 # Archivos de Python compilados
 __pycache__/
 *.pyc
