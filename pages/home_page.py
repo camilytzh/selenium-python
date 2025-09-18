@@ -19,7 +19,7 @@ class HomePage(BasePage):
         return element
     
     def add_to_cart_items(self, number_of_items):
-        items = self.driver.find_elements(*self.LIST_ITEMS_TO_ADD)
+        items = self.finds(*self.LIST_ITEMS_TO_ADD)
         total_items = len(items)
 
         if number_of_items > total_items:
@@ -27,17 +27,17 @@ class HomePage(BasePage):
         
         for _ in range(number_of_items):
             selected_item = rd.choice(items)
-            selected_item.click()
+            self.click_when_clickable(selected_item)
             items.remove(selected_item) #Avoid to choose the same item
 
     def go_shopping_cart(self):
-        self.driver.find_element(*self.SHOPPING_CART_LINK).click()
+        self.click_when_clickable(*self.SHOPPING_CART_LINK)
 
     def click_burger_button(self):
-        self.driver.find_element(*self.BURGER_BUTTON).click()
+        self.click_when_clickable(*self.BURGER_BUTTON)
 
     def click_logout_button(self):
-        self.driver.find_element(*self.LOGOUT_BUTTON).click()
+        self.click_when_clickable(*self.LOGOUT_BUTTON)
 
     def logout(self):
         self.click_burger_button()

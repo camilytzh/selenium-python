@@ -11,13 +11,13 @@ class LoginPage(BasePage):
         self.driver.get("https://www.saucedemo.com/")
     
     def enter_username(self, username):
-        self.driver.find_element(*self.USERNAME_INPUT).send_keys(username)
+        self.find(*self.USERNAME_INPUT).send_keys(username)
 
     def enter_password(self, password):
-        self.driver.find_element(*self.PASSWORD_INPUT).send_keys(password)
+        self.find(*self.PASSWORD_INPUT).send_keys(password)
 
     def click_login_button(self):
-        self.driver.find_element(*self.LOGIN_BUTTON).click()
+        self.click_when_clickable(*self.LOGIN_BUTTON)
 
     def login(self, username, password):
         self.enter_username(username)

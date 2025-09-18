@@ -5,4 +5,4 @@ class OverviewPage(BasePage):
     FINISH_BUTTON = (By.ID, "finish")
 
     def click_finish_button(self):
-        self.driver.find_element(*self.FINISH_BUTTON).click()
+        self.click_when_clickable(*self.FINISH_BUTTON)
