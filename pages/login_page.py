@@ -28,6 +28,15 @@ class LoginPage(BasePage):
     def click_login_button(self):
         self.click_when_clickable(*self.LOGIN_BUTTON)
 
+    def is_login_btn_visible(self):
+        try:
+            WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located(self.LOGIN_BUTTON)
+            )
+            return True
+        except:
+            return False
+
     def login(self, username, password):
         self.enter_username(username)
         self.enter_password(password)
