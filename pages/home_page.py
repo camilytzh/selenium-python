@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 import random as rd
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from base_page import BasePage
+from pages.base_page import BasePage
 
 
 class HomePage(BasePage):
@@ -12,11 +12,14 @@ class HomePage(BasePage):
     BURGER_BUTTON = (By.ID, "react-burger-menu-btn")
     LOGOUT_BUTTON = (By.ID, "logout_sidebar_link")
     
-    def get_products_title_element(self):
-        element = WebDriverWait(self.driver, 10).until(
+    def is_title_visible(self):
+        try:
+            WebDriverWait(self.driver, 10).until(
             EC.visibility_of_element_located(self.PRODUCTS_TITLE)
-        )
-        return element
+            )
+            return True
+        except:
+            return False
     
     def add_to_cart_items(self, number_of_items):
         items = self.finds(*self.LIST_ITEMS_TO_ADD)

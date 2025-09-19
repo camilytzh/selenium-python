@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from base_page import BasePage
+from pages.base_page import BasePage
 
 
 class LoginPage(BasePage):
@@ -17,7 +17,7 @@ class LoginPage(BasePage):
         message = WebDriverWait(self.driver, 10).until(
             EC.visibility_of_element_located(self.ERROR_MESSAGE)
         )
-        return message
+        return message.text
     
     def enter_username(self, username):
         self.find(*self.USERNAME_INPUT).send_keys(username)
