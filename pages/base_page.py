@@ -12,6 +12,11 @@ class BasePage:
         )
         element.click()
 
+    def click_element_when_clickable(self, element):
+        WebDriverWait(self.driver, self.timeout).until(
+            EC.element_to_be_clickable(element)
+        ).click()    
+
     def find(self, by, locator):
         return WebDriverWait(self.driver, self.timeout).until(
             EC.presence_of_element_located((by, locator))

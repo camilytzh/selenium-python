@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from base_page import BasePage
+from pages.base_page import BasePage
 
 class CheckoutPage(BasePage):
     FIRST_NAME_INPUT = (By.ID, "first-name")
@@ -19,7 +19,7 @@ class CheckoutPage(BasePage):
     def click_continue(self):
         self.click_when_clickable(*self.CONTINUE_BUTTON)
 
-    def full_checkout_form(self, first_name, last_name, zip_code):
+    def fill_checkout_form(self, first_name, last_name, zip_code):
         self.enter_first_name(first_name)
         self.enter_last_name(last_name)
         self.enter_zip_code(zip_code)

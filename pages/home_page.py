@@ -30,7 +30,7 @@ class HomePage(BasePage):
         
         for _ in range(number_of_items):
             selected_item = rd.choice(items)
-            self.click_when_clickable(selected_item)
+            self.click_element_when_clickable(selected_item)
             items.remove(selected_item) #Avoid to choose the same item
 
     def go_shopping_cart(self):
