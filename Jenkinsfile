@@ -3,18 +3,20 @@ pipeline {
     stages {
         stage('Install dependencies') {
             steps {
-                sh 'pip install -r requirements.txt'
+                // Windows CMD
+                bat 'venv\\Scripts\\activate && pip install -r requirements.txt'
             }
         }
         stage('Run tests') {
             steps {
-                sh 'pytest --alluredir=./allure-results'
+                bat 'venv\\Scripts\\activate && pytest --alluredir=allure-results'
             }
         }
         stage('Generate Allure Report') {
             steps {
-                sh 'allure generate ./allure-results --clean -o ./allure-report'
+                bat 'allure generate allure-results -o allure-report --clean'
             }
         }
     }
 }
+
