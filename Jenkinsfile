@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     environment {
-        // Cambia esto a la ruta completa de tu python.exe
         PYTHON_EXE = 'C:\\Users\\Camily Torres\\AppData\\Local\\Programs\\Python\\Python311\\python.exe'
     }
 
