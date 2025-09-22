@@ -1,6 +1,9 @@
 # Ignorar entorno virtual
 venv/
 
+# Ignorar reportes de allure
+allure-results/
+
 # Archivos de Python compilados
 __pycache__/
 *.pyc
