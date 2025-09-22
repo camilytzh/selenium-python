@@ -1,9 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage('Install dependencies') {
+        stage('Setup') {
             steps {
-                // Windows CMD
+                bat 'python -m venv venv'              
+                bat 'venv\\Scripts\\activate && pip install --upgrade pip'
                 bat 'venv\\Scripts\\activate && pip install -r requirements.txt'
             }
         }
@@ -14,9 +15,10 @@ pipeline {
         }
         stage('Generate Allure Report') {
             steps {
-                bat 'allure generate allure-results -o allure-report --clean'
+                bat 'venv\\Scripts\\activate && allure generate allure-results -o allure-report --clean'
             }
         }
     }
 }
+
 
