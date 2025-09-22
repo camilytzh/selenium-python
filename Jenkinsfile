@@ -1,11 +1,5 @@
 pipeline {
     agent any
-
-    environment {
-        PYTHON_EXE = 'C:\\Users\\Camily Torres\\AppData\\Local\\Programs\\Python\\Python311\\python.exe'
-        ALLURE_EXE = 'C:\\Users\\Camily Torres\\Downloads\\allure-2.35.1\\bin\\allure.bat'
-    }
-
     stages {
         stage('Setup Environment') {
             steps {
@@ -31,13 +25,6 @@ pipeline {
             steps {
                 echo 'Generating Allure report...'
                 bat '"%ALLURE_EXE%" generate allure-results -o allure-report --clean'
-            }
-        }
-
-        stage('Optional: Open Allure Report') {
-            steps {
-                echo 'You can serve the Allure report locally if needed...'
-                // bat '"%ALLURE_EXE%" serve allure-results'   <- solo para pruebas locales
             }
         }
     }
